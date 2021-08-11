@@ -1,8 +1,55 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Landing.module.sass'
 
-export default function Home() {
+export default function Landing() {
+  return (
+    <div>
+      <Head>
+        <title>@kpostekk</title>
+      </Head>
+
+      <div className={styles.parentContainer}>
+        <div className={styles.mainContainer}>
+          <div className={styles.mainRow}>
+            <h1 className={styles.title}>@kpostekk</h1>
+          </div>
+          <div className={[styles.mainRow, styles.spacerLine].join(' ')}>
+            <div className={styles.sections}>
+              <div className={styles.section}>
+                <p className={styles.sectionTitle}>Projects</p>
+                <div className={styles.sectionHiddenContent}>
+                  <p>.awake(that)</p>
+                  <p>OpenCore composer</p>
+                </div>
+              </div>
+              <div className={styles.section}>
+                <p className={styles.sectionTitle}>Contact</p>
+                <div className={styles.sectionHiddenContent}>
+                  <p>Email</p>
+                  <p>Telegram</p>
+                  <p>Discord</p>
+                </div>
+              </div>
+              <div className={styles.section}>
+                <a href="#" className={styles.sectionTitle}>Blog</a>
+              </div>
+              <div className={styles.section}>
+                <p className={styles.sectionTitle}>CV</p>
+                <div className={styles.sectionHiddenContent}>
+                  <a href={'#'}>English 🇬🇧</a>
+                  <a href={'#'}>Polski 🇵🇱</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -66,4 +113,4 @@ export default function Home() {
       </footer>
     </div>
   )
-}
+} */
