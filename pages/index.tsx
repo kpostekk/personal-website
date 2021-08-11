@@ -2,6 +2,31 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Landing.module.sass'
 
+interface LandingComProps {
+  children?: JSX.Element[],
+  title: string,
+}
+
+function LandingSection(props: LandingComProps) {
+  return (
+    <div className={styles.section}>
+      <p className={styles.sectionTitle}>{props.title}</p>
+      {props.children &&
+        <div className={styles.sectionHiddenContent}>
+        {props.children}
+      </div>}
+    </div>
+  )
+}
+
+function LandingSectionLink(props: { title: string, goTo: string }) {
+  return (
+    <div className={styles.section}>
+      <a href={props.goTo} className={styles.sectionTitle}>{props.title}</a>
+    </div>
+  )
+}
+
 export default function Landing() {
   return (
     <div>
@@ -16,31 +41,20 @@ export default function Landing() {
           </div>
           <div className={[styles.mainRow, styles.spacerLine].join(' ')}>
             <div className={styles.sections}>
-              <div className={styles.section}>
-                <p className={styles.sectionTitle}>Projects</p>
-                <div className={styles.sectionHiddenContent}>
-                  <p>.awake(that)</p>
-                  <p>OpenCore composer</p>
-                </div>
-              </div>
-              <div className={styles.section}>
-                <p className={styles.sectionTitle}>Contact</p>
-                <div className={styles.sectionHiddenContent}>
-                  <p>Email</p>
-                  <p>Telegram</p>
-                  <p>Discord</p>
-                </div>
-              </div>
-              <div className={styles.section}>
-                <a href="#" className={styles.sectionTitle}>Blog</a>
-              </div>
-              <div className={styles.section}>
-                <p className={styles.sectionTitle}>CV</p>
-                <div className={styles.sectionHiddenContent}>
-                  <a href={'#'}>English 🇬🇧</a>
-                  <a href={'#'}>Polski 🇵🇱</a>
-                </div>
-              </div>
+              <LandingSection title={'Projects'}>
+                <a href={'#'}>.awake(that)</a>
+                <a href={'#'}>OpenCore composer</a>
+              </LandingSection>
+              <LandingSection title={'Contact'}>
+                <a href={'#'}>Email</a>
+                <a href={'#'}>Telegram</a>
+                <a href={'#'}>Discord</a>
+              </LandingSection>
+              <LandingSection title={'CV'}>
+                <a href={'#'}>English 🇬🇧</a>
+                <a href={'#'}>Polski 🇵🇱</a>
+              </LandingSection>
+              <LandingSectionLink title={'Blog'} goTo={'#'} />
             </div>
           </div>
         </div>
