@@ -1,55 +1,35 @@
 @import "colors"
-
-.parentContainer
-  position: absolute
-  top: 50%
-  transform: translateY(-50%)
-  width: 100%
-  display: flex
-  flex-direction: column
-  align-content: center
-  justify-content: center
-
-.mainContainer
-  display: flex
-  flex-direction: row
-  align-content: center
-  justify-content: center
-  // border: 2px solid crimson
+@import "containers"
 
 .spacerLine
   border-left: 4px solid $bright
   height: 560px
 
-.mainRow
-  padding: 25px
-  flex-grow: 1
-  flex-basis: 0
-
-.title
+.titles
+  display: flex
+  flex-direction: column
   position: relative
   top: 50%
   transform: translateY(-50%)
-  margin: 0 0 0 auto
-  padding: 30px 20px 30px 60px
-  text-align: right
-  font-size: 42pt
-  letter-spacing: 4px
-  border-left: 4px solid $bright
-  width: min-content
-  font-weight: 100
-  font-style: italic
+  padding-right: 20px
 
-.title
-  transition-duration: 100ms
-  transition-timing-function: ease
+  .title
+    padding: 30px 0 30px 30px
+    margin: 0 0 0 auto
+    text-align: right
+    font-size: 42pt
+    letter-spacing: 4px
+    width: min-content
+    font-weight: 100
+    font-style: italic
+    border-left: 4px solid $bright
 
-.title:hover
-  transition-duration: 100ms
-  transition-timing-function: ease
-  letter-spacing: 8px
-  padding-left: 60px
-  padding-right: 30px
+  .subtitle
+    font-weight: 500
+    font-size: 14pt
+    text-align: right
+    font-style: italic
+    letter-spacing: 1px
 
 .sections
   display: flex
@@ -64,71 +44,33 @@
     background-color: $bright
     color: $dark
     font-size: 18pt
-
-// transition stuff
-$sectionTransitionDuration: 240ms
-.section
-  margin: 20px auto 20px 0
-
-  .sectionTitle
-    transition-duration: $sectionTransitionDuration * 1.33
-    transition-timing-function: ease
-
     padding: 5px 20px
     margin: 0 auto 0 0
-    width: min-content
-
-  .sectionHiddenContent
-    transition-duration: $sectionTransitionDuration
-    transition-timing-function: ease
-    opacity: 0
-
-    border-left: 4px solid $bright
-    height: 0
-
-    p, a
-      transition-duration: $sectionTransitionDuration
-      transition-timing-function: ease
-
-      font-size: 0
-      opacity: 0
-      margin: 0
-
-.section:hover
-  .sectionTitle
-    transition-duration: $sectionTransitionDuration * 1.33
-    transition-timing-function: ease
-    padding-right: 40px
+    width: 300px
+    letter-spacing: 2px
 
   .sectionHiddenContent
     display: flex
     flex-direction: column
-
-    opacity: 1
-    transition-duration: $sectionTransitionDuration
-    transition-timing-function: ease
-
-    margin: 10px auto 0 10px
+    margin: 10px auto 10px 10px
     padding: 5px 0 5px 10px
-    height: auto
+    border-left: 4px solid $bright
 
     p, a
-      transition-duration: $sectionTransitionDuration
-      transition-timing-function: ease
-
-      font-size: inherit
       width: max-content
-      opacity: 1
-      padding: 4px 0
+      padding: 4px 4px 4px 0
       border-right: 4px solid transparent
+      margin: 0
+
+    p, a
+      transition-duration: 200ms
+      transition-timing-function: ease
+      border-right: 1px solid transparent
 
     p:hover, a:hover
-      transition-duration: $sectionTransitionDuration
+      transition-duration: 200ms
       transition-timing-function: ease
-
-      $paddingChangeVer: 6px
-      $paddingChangeHor: 12px
-      padding: $paddingChangeVer $paddingChangeHor + 4px $paddingChangeVer $paddingChangeHor
+      padding: 4px 16px 4px 4px
       border-right: 4px solid $bright
 
 @media (max-width: 1024px)
@@ -141,15 +83,19 @@ $sectionTransitionDuration: 240ms
     width: 100%
     height: auto
 
-  .title
-    border: none
-    padding: 0
-    width: 100%
-    text-align: center
+  .titles
+    top: 0
+    transform: none
+    padding-right: 0
 
-  .title:hover
-    letter-spacing: 4px
-    padding: 0
+    .title
+      border: none
+      padding: 0
+      width: 100%
+      text-align: center
+      margin-top: 120px
+    .subtitle
+      text-align: center
 
   .sections
     top: 0
